@@ -40,7 +40,7 @@ const thoughtController = {
       .then(dbUserData => {
         console.log(dbUserData);
         if (!dbUserData) {
-          res.status(404).json({ message: 'No pizza found with this ID.'});
+          res.status(404).json({ message: 'No user found with this ID.'});
           return;
         }
         res.json(dbUserData);
@@ -68,7 +68,7 @@ const thoughtController = {
     Thought.findOneAndDelete({ _id: params.thoughtId })
       .then(removeThought => {
         if (!removeThought) {
-          return res.status(404).json({ message: 'No reaction found with this ID'});
+          return res.status(404).json({ message: 'No thought found with this ID'});
         }
         return User.findOneAndUpdate(
           { _id: params.userId },
